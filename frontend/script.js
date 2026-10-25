@@ -170,7 +170,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         console.log('Update successful:', result); 
     } catch (error) {
-        console.error('Error incrementing counter:', error);
-        alert('Failed to increment counter. Check console for details.'); 
+        console.error('Error incrementing counter:', error); 
     }
 });
