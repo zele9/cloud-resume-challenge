@@ -78,30 +78,6 @@ function displayAllEducation() {
 }
 showAll.addEventListener('click', displayAllEducation);
 
-// Function to dynamically set my age
-
-// Function to calculate age based on a provided birthday string
-function calculateAge(birthday) {
-    // Convert the birthday string into a Date object
-    const birthDate = new Date(birthday);
-
-    // Get today's date
-    const today = new Date();
-
-    // Calculate preliminary age as the difference in years
-    let age = today.getFullYear() - birthDate.getFullYear();
-
-    // Check if the birthday has already occurred this year
-    const hasHadBirthdayThisYear =
-        today.getMonth() > birthDate.getMonth() ||
-        (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
-
-    // If the birthday hasn’t happened yet this year, subtract one year from the age
-    if (!hasHadBirthdayThisYear) age--;
-
-    // Return the final age value
-    return age;
-}
 
 // Wait for the DOM to fully load before executing
 document.addEventListener('DOMContentLoaded', () => {
@@ -170,7 +146,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         console.log('Update successful:', result); 
     } catch (error) {
-        console.error('Error incrementing counter:', error);
-        alert('Failed to increment counter. Check console for details.'); 
+        console.error('Error incrementing counter:', error); 
     }
 });
