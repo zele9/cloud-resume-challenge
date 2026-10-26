@@ -13,14 +13,14 @@ navClose.addEventListener('click', () => {
 })
 
 const typed_1 = new Typed(".typewrite_1", {
-    strings: ["Cloud Engineer", "Software Developer", "Plane Enthusiast"],  // strings to be displayed in the typewriter effect (array)
+    strings: ["AWS Solutions Architect", "Software Developer", "Plane Enthusiast"],  // strings to be displayed in the typewriter effect (array)
     typeSpeed: 150,
     backSpeed: 150,
     loop: true
 })
 
 const typed_2 = new Typed(".typewrite_2", {
-    strings: ["Cloud Engineer", "Software Developer", "Plane Enthusiast"],  // strings to be displayed in the typewriter effect (array)
+    strings: ["AWS Solutions Architect", "Software Developer", "Plane Enthusiast"],  // strings to be displayed in the typewriter effect (array)
     typeSpeed: 150,
     backSpeed: 150,
     loop: true
