@@ -473,6 +473,24 @@ article .abilities .level .after-effect {
 .section-3 .professional .job-description ul li:hover::marker {
     color: #E3872D;
 }
+/* Group titles: "Work History" and "Projects" */
+.section-3 .professional .subsection-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #E3872D;
+    margin: 2.5rem 1rem 0.5rem;
+}
+
+/* Tech stack line under each project title */
+.section-3 .professional .job-description p.tech-stack {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    color: #2f2f2d;
+    opacity: 0.8;
+}
 .section-4 {
     width: 100%;
     padding: 1.7rem 3rem;
