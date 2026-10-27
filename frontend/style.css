@@ -158,7 +158,7 @@ html::-webkit-scrollbar-thumb {
     margin: 4rem 0;
     border-left: 5px solid #E3872D;
 }
-.section-2 .section-2-heading h1 {
+.section-2 .section-2-heading h2 {
     font-size: 50px;
     font-weight: 600;
     text-transform: uppercase;
@@ -328,7 +328,7 @@ article {
     padding: 1.7rem 5rem;
     transition: 0.3;
 }
-article h1 {
+article h2 {
     font-size: 50px;
     font-weight: 600;
     text-transform: uppercase;
@@ -421,7 +421,7 @@ article .abilities .level .after-effect {
     margin: 4rem 0;
     border-left: 5px solid #E3872D;
 }
-.section-3 .section-3-heading h1 {
+.section-3 .section-3-heading h2 {
     font-size: 50px;
     font-weight: 600;
     text-transform: uppercase;
@@ -436,8 +436,13 @@ article .abilities .level .after-effect {
     display: flex;
     padding: 1rem 1rem;
     justify-content: space-between;
+    align-items: baseline;
     color: #2f2f2d;
     transition: 0.3s;
+}
+.section-3 .professional span h4 {
+    font-size: 32px;   /* use the value you measured */
+    font-weight: 700;
 }
 .section-3 .professional .job-description {
     padding: 1rem 1.5rem;
@@ -502,7 +507,7 @@ article .abilities .level .after-effect {
     margin: 4rem 0;
     border-left: 5px solid #E3872D;
 }
-.section-4 .section-4-heading h1 {
+.section-4 .section-4-heading h2 {
     font-size: 50px;
     font-weight: 600;
     text-transform: uppercase;
@@ -669,10 +674,12 @@ article .abilities .level .after-effect {
     text-align: center;
     padding: 3rem 0;
  }
- .section-6 .map ol li h1 {
+ .section-6 .map ol li .stat-number {
+    display: block;
     font-size: 3rem;
+    font-weight: 700;
     color: #041230;
- }
+}
  .section-6 .map ol li p {
     color: #041230;
     font-weight: 600;
@@ -691,7 +698,7 @@ article .abilities .level .after-effect {
     margin: 4rem 0;
     border-left: 5px solid #E3872D;
 }
-.section-7 .section-7-heading h1 {
+.section-7 .section-7-heading h2 {
     font-size: 50px;
     font-weight: 600;
     text-transform: uppercase;
@@ -1129,7 +1136,7 @@ footer .footer-btn button a:hover:before {
         padding: 0 1.5rem;
         margin: 2.5rem 0;
     }
-    .section-2 .section-2-heading h1 {
+    .section-2 .section-2-heading h2 {
         font-size: 40px;
     }
     .section-2 .inner-desktop {
@@ -1223,7 +1230,7 @@ footer .footer-btn button a:hover:before {
         padding: 1.5rem 2.5rem;
         margin-bottom: 3rem;
     }
-    .section-3 .section-3-heading h1 {
+    .section-3 .section-3-heading h2 {
         font-size: 35px;
     }
     .section-3 .professional span {
@@ -1237,13 +1244,13 @@ footer .footer-btn button a:hover:before {
 .section-3 .professional .job-description ul {
     padding: 1rem 1rem;
     }
-    .section-4 .section-4-heading  h1 {
+    .section-4 .section-4-heading h2 {
     font-size: 35px;
     }
     .section-4 .my-works .cards .text-card {
         height: auto;
     }
-    .section-7 .section-7-heading h1 {
+    .section-7 .section-7-heading h2 {
         font-size: 35px;
     }
 }
@@ -1301,7 +1308,7 @@ footer .footer-btn button a:hover:before {
         padding: 0 1rem;
         margin: 2.5rem 0;
     }
-    .section-2 .section-2-heading h1 {
+    .section-2 .section-2-heading h2 {
         font-size: 33px;
     }
     .section-2 .inner-desktop {
@@ -1395,7 +1402,7 @@ footer .footer-btn button a:hover:before {
         padding: 1.5rem 1.5rem;
         margin-bottom: 3rem;
     }
-    .section-3 .section-3-heading h1 {
+    .section-3 .section-3-heading h2 {
         font-size: 32px;
     }
     .section-3 .professional span {
@@ -1413,7 +1420,7 @@ footer .footer-btn button a:hover:before {
         padding: 1.5rem 1.5rem;
         margin-bottom: 3rem;
     }
-    .section-4 .section-4-heading  h1 {
+    .section-4 .section-4-heading h2 {
     font-size: 29px;
     }
     .section-4 .my-works .cards .text-card {
@@ -1423,7 +1430,7 @@ footer .footer-btn button a:hover:before {
         padding: 1.5rem 1.5rem;
         margin-bottom: 3rem;
     }
-    .section-7 .section-7-heading h1 {
+    .section-7 .section-7-heading h2 {
         font-size: 32px;
     }
     .section-7 .section-7-btn {
