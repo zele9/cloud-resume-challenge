@@ -32,6 +32,7 @@ jobs:
           PAYLOAD=$(echo "$TOKEN" | cut -d. -f2 | tr '_-' '/+')
           while [ $(( ${#PAYLOAD} % 4 )) -ne 0 ]; do PAYLOAD="${PAYLOAD}="; done
           echo "$PAYLOAD" | base64 -d | jq '{iss, aud, sub}'
+
       - name: Get temporary AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v6
         with:
