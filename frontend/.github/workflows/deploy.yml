@@ -1,0 +1,38 @@
+name: Deploy site to S3 and CloudFront
+
+# When to run
+on:
+  push:
+    branches: [main]          # only when code lands on main
+    paths:
+      - "frontend/**"         # only when site files changed (backend changes don't redeploy the site)
+  workflow_dispatch:          # adds a "Run workflow" button for manual runs
+
+# What the workflow's GitHub token may do
+permissions:
+  id-token: write             # REQUIRED: lets the workflow request the OIDC token
+  contents: read              # lets it read (check out) the repo
+
+# Never run two deploys at the same time
+concurrency:
+  group: deploy-site
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest    # a fresh GitHub-hosted Linux machine
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Get temporary AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::628838486061:role/github-actions-cloud-resume-deploy
+          aws-region: us-east-2   # change to your bucket's region
+
+      - name: Upload site files to S3
+        run: aws s3 sync frontend/ s3://emmanuelataba.com --delete
+
+      - name: Invalidate CloudFront cache
+        run: aws cloudfront create-invalidation --distribution-id E2JQRGGLERNIOY --paths "/*"
