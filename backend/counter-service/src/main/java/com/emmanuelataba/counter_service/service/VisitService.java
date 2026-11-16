@@ -1,23 +1,37 @@
 package com.emmanuelataba.counter_service.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.emmanuelataba.counter_service.entity.VisitCounter;
 import com.emmanuelataba.counter_service.repository.VisitRepository;
 
-@Service
+
+@Service 
 public class VisitService {
+    private static final String COUNTER_ID = "visitCount";
+    private final VisitRepository visitRepository;
 
-    private final VisitRepository visitRepository;          // the toolbox (no "new")
-
-    public VisitService(VisitRepository visitRepository) {  // Spring hands it in
-        this.visitRepository = visitRepository;             // store it: field = parameter
+    public VisitService(VisitRepository visitRepository) {
+        this.visitRepository = visitRepository;
     }
 
+    @Transactional(readOnly = true)
     public long getVisits() {
-        return visitRepository.getCount();
+        // TODO: return the current count, or 0 if the row doesn't exist
+        return visitRepository.findById(COUNTER_ID)
+                                .map(VisitCounter::getSiteVisits)
+                                .orElse(0L);
     }
 
+    @Transactional 
     public long recordVisit() {
-        return visitRepository.increment();
+        int updated = visitRepository.incrementVisits(COUNTER_ID);
+        if (updated == 0) {
+            throw new IllegalStateException("Counter row '" + COUNTER_ID + "' not found");
+        }
+        return visitRepository.findById(COUNTER_ID)
+                .map(VisitCounter::getSiteVisits)
+                .orElseThrow();
     }
 }
