@@ -26,12 +26,10 @@ public class VisitService {
 
     @Transactional 
     public long recordVisit() {
-        int updated = visitRepository.incrementVisits(COUNTER_ID);
-        if (updated == 0) {
-            throw new IllegalStateException("Counter row '" + COUNTER_ID + "' not found");
-        }
-        return visitRepository.findById(COUNTER_ID)
-                .map(VisitCounter::getSiteVisits)
-                .orElseThrow();
+        visitRepository.upsertIncrement(COUNTER_ID);    //insert or increment atomically
+        return visitRepository.findById(COUNTER_ID)     // then read the real count
+                                .map(VisitCounter::getSiteVisits)
+                                .orElseThrow();
+
     }
 }
