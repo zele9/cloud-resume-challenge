@@ -30,6 +30,5 @@ public class VisitService {
         return visitRepository.findById(COUNTER_ID)     // then read the real count
                                 .map(VisitCounter::getSiteVisits)
                                 .orElseThrow();
-
     }
 }
