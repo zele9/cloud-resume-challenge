@@ -9,8 +9,13 @@ import com.emmanuelataba.counter_service.entity.VisitCounter;
 
 public interface VisitRepository extends JpaRepository <VisitCounter, String> {
 
-    // Atomic increment: one UPDATE statement, so the database applies concurrent visits one at a time
+    // Atomic "insert or increment": creates the row with 1 if missing, otherwise adds 1.
+    //Native SQL bacause ON DUPLICATED KEY UPDATE is MYSQL-specific (JPQL can't express it).
     @Modifying(clearAutomatically = true)
-    @Query("UPDATE VisitCounter v SET v.siteVisits = v.siteVisits + 1 WHERE v.counterId = :counterId")
-    int incrementVisits(@Param("counterId") String counterId);
+    @Query (value = """
+            INSERT INTO visit_counter (counter_id, site_visits) 
+            VALUES (:counterId, 1)
+            ON DUPLICATE KEY UPDATE site_visits = site_visits + 1
+        """, nativeQuery = true)
+        int upsertIncrement(@Param("counterId") String counterId);
 }
